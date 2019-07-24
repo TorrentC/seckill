@@ -44,7 +44,7 @@ public class RedisService {
             if (i <= 0) {
                 jedis.set(realKey, beanToString(value));
             } else {
-                jedis.setex(key , i, beanToString(value));
+                jedis.setex(realKey , i, beanToString(value));
             }
             return true;
         } finally {

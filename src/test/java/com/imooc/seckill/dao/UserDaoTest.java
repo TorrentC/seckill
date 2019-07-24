@@ -22,17 +22,7 @@ public class UserDaoTest extends BaseTest {
 
     @Test
     public void testFindById() {
-        User user = userDao.findUserById(41);
+        User user = userDao.findUserById("15395201029");
         System.out.println(user);
-    }
-
-    @Test
-    public void testAddUser() {
-        User user = new User();
-        user.setId(59);
-        user.setUsername("张三");
-
-        int i = userDao.addUser(user);
-        System.out.println(i);
     }
 }

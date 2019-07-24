@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -15,8 +16,6 @@ public interface UserDao {
     List<User> findAll();
 
     @Select("select * from user where id = #{id}")
-    User findUserById(@Param("id")int id);
+    User findUserById(@Param("id")String id);
 
-    @Insert("insert into user(id, username) values(#{id}, #{username})")
-    int addUser(User user);
 }

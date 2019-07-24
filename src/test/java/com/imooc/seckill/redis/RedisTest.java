@@ -15,7 +15,7 @@ public class RedisTest extends BaseTest {
     public void testConnection() {
 
 
-        boolean a = redisService.set(UserKey.getById,"123", 123);
+        boolean a = redisService.set(UserKey.token,"123", 123);
         System.out.println(redisService.decr(UserKey.getById, "123"));
 
     }
