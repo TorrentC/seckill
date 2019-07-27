@@ -17,14 +17,13 @@ public class HelloController {
 
 
     @RequestMapping("/")
-    @ResponseBody
-    public Result<List<Integer>> hello(Model model) {
+    public String hello(Model model) {
 
         model.addAttribute("name", "merry");
 
         Result<List<Integer>> success = Result.success(Arrays.asList(1, 2, 3, 4));
 
-        return success;
+        return "hello";
     }
 
     @RequestMapping("/err")
@@ -32,5 +31,17 @@ public class HelloController {
     public Result error() {
         Result<Object> error = Result.error(CodeMsg.SERVER_ERROR);
         return error;
+    }
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public List<Integer> test() {
+        return Arrays.asList(1, 2, 3, 4);
+    }
+
+    @RequestMapping("/user")
+    @ResponseBody
+    public Result user(User user) {
+        return Result.success(user);
     }
 }

@@ -20,9 +20,12 @@ public class CodeMsg {
 
     //商品模块 5003XX
 
+    public static CodeMsg Goods_NOt_FOUND = new CodeMsg(500301, "商品未找到");
     //订单模块 5004XX
 
     //秒杀模块 5005XX
+    public static CodeMsg MIAO_SHA_OVER = new CodeMsg(500500, "商品已经秒杀完毕");
+    public static CodeMsg REPEATE_MIAOSHA = new CodeMsg(500501, "不能重复秒杀");
 
     //禁止从外部实例化
     private CodeMsg(int code, String msg) {
