@@ -1,10 +1,16 @@
 package com.imooc.seckill.redis;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.imooc.seckill.vo.GoodsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class RedisService {
@@ -130,5 +136,22 @@ public class RedisService {
         }
 
         return JSON.toJSONString(value);
+    }
+
+    public static void main(String[] args) {
+
+        String t = "[{\"endDate\":1598287158000,\"goodsImg\":\"/img/meta10.png\",\"goodsName\":\"HuaWei mate20\",\"goodsPrice\":5000.0,\"goodsStock\":-1,\"id\":1,\"miaoshaPrice\":0.5,\"startDate\":1564023615000,\"stockCount\":-21},{\"endDate\":1598287180000,\"goodsImg\":\"/img/iphonex.png\",\"goodsName\":\"IPhone10\",\"goodsPrice\":8000.0,\"goodsStock\":-1,\"id\":2,\"miaoshaPrice\":1.0,\"startDate\":1595608777000,\"stockCount\":100}]";
+        ArrayList<GoodsVo> goodsVos = new ArrayList<GoodsVo>();
+        GoodsVo goodsVo = new GoodsVo();
+        goodsVo.setId(1L);
+        goodsVo.setEndDate(new Date());
+        goodsVo.setMiaoshaPrice(1d);
+
+        goodsVos.add(goodsVo);
+        String s = JSON.toJSONString(goodsVos);
+        System.out.println(s);
+
+        List<GoodsVo> goodsVos1 = JSONArray.parseArray(t, GoodsVo.class);
+        System.out.println(goodsVos1);
     }
 }

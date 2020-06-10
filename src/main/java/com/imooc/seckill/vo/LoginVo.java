@@ -1,5 +1,7 @@
 package com.imooc.seckill.vo;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 

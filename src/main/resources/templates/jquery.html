@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap 实例 - 条纹表格</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="max-width: 800px; margin: 0 auto">
+
+    <table class="table table-striped">
+        <caption>条纹表格布局</caption>
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>城市</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Tanmay</td>
+            <td>Bangalore</td>
+        </tr>
+        <tr>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+        </tr>
+        <tr>
+            <td>Uma</td>
+            <td>Pune</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">名字</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="firstname"
+                       placeholder="请输入名字">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastname" class="col-sm-2 control-label">姓</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="lastname"
+                       placeholder="请输入姓">
+            </div>
+        </div>
+
+
+    </form>
+
+    <p>
+        <button id="but" type="button" class="btn btn-primary btn-lg ">原始按钮</button>
+        <button id="disbut" type="button" class="btn btn-primary btn-lg">禁用的原始按钮</button>
+    </p>
+
+
+
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="60"
+         aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        <p class="sr-only">40% 完成</p>
+    </div>
+    <p class="text-info">40% 完成</p>
+</div>
+
+
+
+<script>
+    $(function () {
+       $("#but").click(function () {
+           var width = 0;
+            var p = setInterval(function () {
+                width += 10;
+                $("#disbut").text(width+"%");
+                $(".progress-bar").css("width", width+"%");
+                if(width >= 100) {
+                    clearInterval(p);
+                }
+            }, 100);
+       });
+
+       $("#disbut").click(function () {
+          $("p").append("       <div class=\"alert alert-warning alert-dismissible\" role=\"alert\"> <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> <strong>Warning!</strong> "+123+" </div>\n")
+       });
+
+        for (var dataKey in data) {
+            $(".form-control").append("<option>"+dataKey+"</option>")
+        }
+
+
+    });
+
+    data = {
+      "name":"zhangsuan",
+        "friend": ["1", "2", "3"],
+        "score":{"math":76, "englist":100}
+    };
+
+
+
+    function trFunc(last) {
+        return "<tr><td>"+last+"</td><td>";
+    }
+</script>
+
+</body>
+</html>

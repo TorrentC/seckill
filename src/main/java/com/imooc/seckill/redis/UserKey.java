@@ -19,7 +19,6 @@ public class UserKey extends BasePrefix {
 
     public static void main(String[] args) {
         String prefix = getById.getPrefix();
-        KeyPrefix keyPrefix = UserKey.token;
-        System.out.println(keyPrefix.getPrefix());
+        System.out.println(prefix);
     }
 }

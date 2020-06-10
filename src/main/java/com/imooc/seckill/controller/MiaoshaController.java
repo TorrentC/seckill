@@ -36,6 +36,7 @@ public class MiaoshaController {
         //判断库存是否大于零
         if (goodsVo.getStockCount() <= 0) {
             model.addAttribute("errmsg", CodeMsg.MIAO_SHA_OVER.getMsg());
+            return "miaosha_fail";
         }
 
         //判断是否重复秒杀
